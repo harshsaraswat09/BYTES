@@ -17,6 +17,8 @@ export const protect = async (
   next: NextFunction
 ) => {
   try {
+    
+
     const authHeader = req.headers.authorization;
 
     if (!authHeader || !authHeader.startsWith("Bearer ")) {
@@ -25,18 +27,19 @@ export const protect = async (
 
     const token = authHeader.split(" ")[1];
 
-    const decoded = verifyToken(token);
+    const payload = verifyToken(token);
 
-    const userExists = await User.exists({ _id: decoded.id });
+    const userExists = await User.exists({ _id: payload.id });
+
     if (!userExists) {
       return next(ApiError.unauthorized("User no longer exists"));
     }
 
-    req.userId = decoded.id;
+    req.userId = payload.id;
 
     next();
-  } catch (error) {
-    next(ApiError.unauthorized("Invalid token"));
+
+  } catch (err) {
+    next(ApiError.unauthorized("Invalid or expired token"));
   }
 };
-

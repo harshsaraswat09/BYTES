@@ -14,12 +14,14 @@ export const createPost = async (
   try {
     const { title, content, tags } = req.body;
 
-    const post = await Post.create({
+    const newPost = await Post.create({
       title,
       content,
       tags,
       author: req.userId,
     });
+
+    const post = await Post.findById(newPost._id).populate("author", "name email");
 
     res.status(201).json({
       message: "Post created successfully",

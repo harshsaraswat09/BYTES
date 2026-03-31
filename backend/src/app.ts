@@ -4,7 +4,8 @@ import helmet from "helmet";
 import morgan from "morgan";
 import { env } from "./config/env";
 import { errorHandler } from "./middleware/errorHandler";
-
+import authRoutes from "./routes/auth.routes";
+import blogRoutes from "./routes/blog.routes";
 
 
 
@@ -19,6 +20,12 @@ app.use(express.json())
 app.use(morgan("dev"))
 
 
+// ROUTES
+
+app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/blog", blogRoutes);
+
+
 app.get("/health", (_req, res) => {
   res.json({
     status: "ok",
@@ -27,10 +34,14 @@ app.get("/health", (_req, res) => {
   });
 });
 
-// Routes will go here
-// app.use("/api/v1/auth", authRoutes);
-// app.use("/api/v1/blog", blogRoutes);
 
-// ADD THIS — must always be the LAST line
+// 404 HANDLER
+// If no route matched — send this
+app.use((_req, res) => {
+  res.status(404).json({ message: "Route not found" });
+});
+
+app.use(errorHandler);
+
 
 export default app; 
