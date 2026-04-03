@@ -1,1 +1,0 @@
-export const Signup = () => <div>Signup Page</div>;

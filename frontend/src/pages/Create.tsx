@@ -1,1 +1,0 @@
-export const Create = () => <div>Create Page</div>;
