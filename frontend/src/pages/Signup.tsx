@@ -54,7 +54,7 @@ export const Signup = () => {
     <div className="min-h-screen flex">
 
       {/* Left side — Quote (hidden on mobile) */}
-      <div className="hidden lg:flex flex-1 bg-gray-50 items-center justify-center p-16 border-r border-gray-100">
+      <div className="hidden lg:flex flex-1 bg-gray-100 items-center justify-center p-16 border-r border-gray-100">
         <div className="max-w-md">
           <blockquote className="text-2xl font-serif text-gray-800 leading-relaxed mb-6">
             "A writer only begins a book. A reader finishes it."

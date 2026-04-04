@@ -121,7 +121,7 @@ export const Signin = () => {
       </div>
 
       {/* Right side — Quote (hidden on mobile) */}
-      <div className="hidden lg:flex flex-1 bg-gray-50 items-center justify-center p-16 border-l border-gray-100">
+      <div className="hidden lg:flex flex-1 bg-gray-100 items-center justify-center p-16 border-l border-gray-100">
         <div className="max-w-md">
           <blockquote className="text-2xl font-serif text-gray-800 leading-relaxed mb-6">
             "The scariest moment is always just before you start."
