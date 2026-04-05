@@ -31,29 +31,18 @@ const userSchema = new mongoose.Schema<IUser>(
       select: false,
     },
   },
-  {
-    timestamps: true,
-  }
+  { timestamps: true }
 );
 
 userSchema.pre("save", async function () {
-  console.log("pre save hook running...");
-  console.log("password modified?", this.isModified("password"));
-
   if (!this.isModified("password")) return;
-
-  console.log("hashing password...");
   this.password = await bcrypt.hash(this.password, 12);
-  console.log("hashed:", this.password);
 });
 
 userSchema.methods.comparePassword = async function (
   candidatePassword: string
 ): Promise<boolean> {
-  console.log("comparing passwords..."); // ADD THIS
-  const result = await bcrypt.compare(candidatePassword, this.password);
-  console.log("match result:", result); // ADD THIS
-  return result;
+  return bcrypt.compare(candidatePassword, this.password);
 };
 
 userSchema.methods.toJSON = function () {
