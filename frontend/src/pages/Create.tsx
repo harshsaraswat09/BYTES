@@ -111,7 +111,7 @@ export const Create = () => {
         />
 
         {/* Divider */}
-        <div className="w-12 h-0.5 bg-gray-200 mb-6" />
+        <div className="w-12 h-0.5 bg-gray-500 mb-6" />
 
         {/* Tags input */}
         <input
