@@ -8,7 +8,6 @@ Welcome to Bytes, a full-stack blogging web application. This README provides a 
 - [Features](#features)
 - [Tech Stack](#tech-stack)
 - [Usage](#usage)
-- [Improvements](#improvements)
 - [Further Contribution](#further-contribution)
 
 ## 🚀 Introduction
