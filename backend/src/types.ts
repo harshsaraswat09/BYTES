@@ -5,7 +5,7 @@ import {
   signinSchema,
   createPostSchema,
   updatePostSchema,
-} from "./validators";
+} from "../../backend/src/validators";
 
 export type SignupInput = z.infer<typeof signupSchema>;
 

@@ -2,9 +2,9 @@
   "name": "@bytes/backend",
   "version": "1.0.0",
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only -r tsconfig-paths/register server.ts",
+    "dev": "ts-node-dev --respawn --transpile-only server.ts",
     "build": "npm install && tsc",
-    "start": "node dist/backend/server.js"
+    "start": "node dist/server.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

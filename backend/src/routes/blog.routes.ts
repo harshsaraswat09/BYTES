@@ -9,7 +9,7 @@ import {
 } from "../controllers/blog.controller";
 import { validate } from "../middleware/validate";
 import { protect } from "../middleware/auth.middleware";
-import { createPostSchema, updatePostSchema } from "@bytes/common";
+import { createPostSchema, updatePostSchema } from "../validators";
 
 const router = Router();
 

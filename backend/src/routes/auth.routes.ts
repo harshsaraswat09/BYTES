@@ -2,7 +2,7 @@ import { Router } from "express";
 import { signup, signin, getMe } from "../controllers/auth.controller";
 import { validate } from "../middleware/validate";
 import { protect } from "../middleware/auth.middleware";
-import { signupSchema, signinSchema } from "@bytes/common";
+import { signupSchema, signinSchema } from "../validators";
 
 const router = Router();
 
